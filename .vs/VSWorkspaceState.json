@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\src"
+    "\\src",
+    "\\src\\Form",
+    "\\src\\Summary"
   ],
   "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
