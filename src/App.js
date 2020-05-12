@@ -6,8 +6,8 @@ import slugify from 'slugify';
 
 import './App.css';
 import Feature from './Feature/Feature';
-import Options from './Options/Options';
-import Summary from './Summary/Summary';
+import Item from './Item/Item';
+import Option from './Option/Option';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -44,6 +44,8 @@ class App extends Component {
     };
 
     updateFeature = (feature, newValue) => {
+        console.log('FEATURE IS', feature)
+        console.log(newValue);
         const selected = Object.assign({}, this.state.selected);
         selected[feature] = newValue;
         this.setState({
@@ -63,8 +65,8 @@ class App extends Component {
             });
 
             return (
-                //option
-                <Options featureHash={featureHash} feature={feature} options={options}/>
+                //feature items
+                <Item featureHash={featureHash} feature={feature} options={options}/>
             );
         });
 
@@ -73,7 +75,7 @@ class App extends Component {
 
             return (
                 //summary
-                <Summary featureHash={featureHash} feature={feature} selectedOption={this.state.selected[feature]} USCurrencyFormat={this.state.USCurrencyFormat} />
+                <Option featureHash={featureHash} feature={feature} selectedOption={this.state.selected[feature]} USCurrencyFormat={this.state.USCurrencyFormat} />
             );
         });
 
