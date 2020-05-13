@@ -5,9 +5,8 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 
 import './App.css';
-import Feature from './Feature/Feature';
-import Item from './Item/Item';
-import Option from './Option/Option';
+import Summary from './Summary/Summary';
+import Features from './Features/Features';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -54,57 +53,14 @@ class App extends Component {
     };
 
     render() {
-        const features = Object.keys(this.props.features).map((feature, idx) => {
-            const featureHash = feature + '-' + idx;
-            const options = this.props.features[feature].map(item => {
-                const itemHash = slugify(JSON.stringify(item));
-                return (
-                    //feature
-                    <Feature updateFeature={this.updateFeature} itemHash={itemHash} feature={feature} item={item} selected={this.state.selected} USCurrencyFormat={this.state.USCurrencyFormat} />
-                );
-            });
-
-            return (
-                //feature items
-                <Item featureHash={featureHash} feature={feature} options={options}/>
-            );
-        });
-
-        const summary = Object.keys(this.state.selected).map((feature, idx) => {
-            const featureHash = feature + '-' + idx;
-
-            return (
-                //summary
-                <Option featureHash={featureHash} feature={feature} selectedOption={this.state.selected[feature]} USCurrencyFormat={this.state.USCurrencyFormat} />
-            );
-        });
-
-        const total = Object.keys(this.state.selected).reduce(
-            (acc, curr) => acc + this.state.selected[curr].cost,
-            0
-        );
-
         return (
             <div className="App">
                 <header>
                     <h1>ELF Computing | Laptops</h1>
                 </header>
                 <main>
-                    <form className="main__form">
-                        <h2>Customize your laptop</h2>
-                        {features}
-                        
-                    </form>
-                    <section className="main__summary">
-                        <h2>Your cart</h2>
-                        {summary}
-                        <div className="summary__total">
-                            <div className="summary__total__label">Total</div>
-                            <div className="summary__total__value">
-                                {USCurrencyFormat.format(total)}
-                            </div>
-                        </div>
-                    </section>
+                    <Features features={this.props.features} updateFeature={this.updateFeature} selected={this.state.selected}  USCurrencyFormat={this.state.USCurrencyFormat} />
+                    <Summary selected={this.state.selected} USCurrencyFormat={this.state.USCurrencyFormat} />
                 </main>
             </div>
         );
