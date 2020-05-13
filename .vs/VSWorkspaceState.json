@@ -3,9 +3,13 @@
     "",
     "\\public",
     "\\src",
-    "\\src\\Form",
-    "\\src\\Summary"
+    "\\src\\Feature",
+    "\\src\\Features",
+    "\\src\\Item",
+    "\\src\\Option",
+    "\\src\\Summary",
+    "\\src\\Total"
   ],
-  "SelectedNode": "\\src\\App.js",
+  "SelectedNode": "\\src\\Item\\Item.js",
   "PreviewInSolutionExplorer": false
 }

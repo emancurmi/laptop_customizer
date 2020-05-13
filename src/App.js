@@ -8,12 +8,8 @@ import './App.css';
 import Summary from './Summary/Summary';
 import Features from './Features/Features';
 
-// This object will allow us to
-// easily convert numbers into US dollar values
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
-});
+import FEATURES from './Store.js';
+
 
 class App extends Component {
     state = {
@@ -39,12 +35,12 @@ class App extends Component {
         USCurrencyFormat: new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD'
-        })
+        }),
+
+        store: FEATURES
     };
 
     updateFeature = (feature, newValue) => {
-        console.log('FEATURE IS', feature)
-        console.log(newValue);
         const selected = Object.assign({}, this.state.selected);
         selected[feature] = newValue;
         this.setState({
@@ -59,7 +55,7 @@ class App extends Component {
                     <h1>ELF Computing | Laptops</h1>
                 </header>
                 <main>
-                    <Features features={this.props.features} updateFeature={this.updateFeature} selected={this.state.selected}  USCurrencyFormat={this.state.USCurrencyFormat} />
+                    <Features features={this.state.store} updateFeature={this.updateFeature} selected={this.state.selected}  USCurrencyFormat={this.state.USCurrencyFormat} />
                     <Summary selected={this.state.selected} USCurrencyFormat={this.state.USCurrencyFormat} />
                 </main>
             </div>
