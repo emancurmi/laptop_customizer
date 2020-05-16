@@ -17,8 +17,8 @@ export default class Feature extends Component {
                     id={this.props.itemHash}
                     className="feature__option"
                     name={slugify(this.props.feature)}
+                    onChange={e => this.props.updateFeature(this.props.feature, this.props.item)}
                     checked={this.props.item.name === this.props.selected[this.props.feature].name}
-                   
                 />
                 <label htmlFor={this.propsitemHash} className="feature__label">
                     {this.props.item.name} ({this.props.USCurrencyFormat.format(this.props.item.cost)})

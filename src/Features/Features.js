@@ -11,12 +11,12 @@ export default class Features extends Component {
             const options = this.props.features[feature].map(item => {
                 const itemHash = slugify(JSON.stringify(item));
                 return (
-                    <Feature updateFeature={this.props.updateFeature} itemHash={itemHash} feature={feature} item={item} selected={this.props.selected} USCurrencyFormat={this.props.USCurrencyFormat} />
+                    <Feature key={itemHash} updateFeature={this.props.updateFeature} itemHash={itemHash} feature={feature} item={item} selected={this.props.selected} USCurrencyFormat={this.props.USCurrencyFormat} />
                 );
             });
 
             return (
-                <Item featureHash={featureHash} feature={feature} options={options} />
+                <Item key={featureHash} featureHash={featureHash} feature={feature} options={options} />
             );
         });
 

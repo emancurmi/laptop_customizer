@@ -10,7 +10,7 @@ export default class Summary extends Component {
 
             const featureHash = feature + '-' + idx;
             return (
-                <Option featureHash={featureHash} feature={feature} selectedOption={this.props.selected[feature]} USCurrencyFormat={this.props.USCurrencyFormat} />
+                <Option key={featureHash} featureHash={featureHash} feature={feature} selectedOption={this.props.selected[feature]} USCurrencyFormat={this.props.USCurrencyFormat} />
             );
         });
 

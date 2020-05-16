@@ -1,15 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\public",
-    "\\src",
-    "\\src\\Feature",
-    "\\src\\Features",
-    "\\src\\Item",
-    "\\src\\Option",
-    "\\src\\Summary",
-    "\\src\\Total"
+    ""
   ],
-  "SelectedNode": "\\src\\Item\\Item.js",
   "PreviewInSolutionExplorer": false
 }
